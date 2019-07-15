@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js --mode development --open --hot",
-    "now-build": "cross-env NODE_ENV=production webpack -p --config config/webpack.prod.js",
+    "build": "cross-env NODE_ENV=production webpack -p --config config/webpack.prod.js",
     "lint": "eslint ./ --fix && echo \"No eslint errors!\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

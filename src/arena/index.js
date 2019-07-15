@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./index.scss";
 
-const baseUrl = process.env.NODE_ENV === 'production' ? process.env.API_URL : 'http://localhost:9000'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://typeracingapi.rishikc.com/' : 'http://localhost:9000'
 
 const INITIAL_STATE = {
   text: "",
@@ -44,8 +44,8 @@ export default class Arena extends Component {
           this.setState(prev => ({ timer: prev.timer - 1 }));
         }
       }, 1000);
-    }).catch(() => {
-      this.fetchData();
+    }).catch((err) => {
+      console.log(err)
     });
   };
 
