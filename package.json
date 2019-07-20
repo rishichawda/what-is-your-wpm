@@ -1,5 +1,5 @@
 {
-  "name": "minimal-react-boilerplate",
+  "name": "whatisyour-wpm",
   "version": "1.0.0",
   "description": "A minimal react boilerplate with webpack, babel and sass support.",
   "main": "index.js",
