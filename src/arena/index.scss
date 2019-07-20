@@ -24,8 +24,9 @@
     opacity: 0;
     position: absolute;
     bottom: 0;
-    right: 2em;
+    right: 0;
     padding: 1em;
+    padding-right: 0;
     align-self: flex-end;
     min-width: fit-content;
 
@@ -139,6 +140,9 @@
 
       .progressed {
         background-color: rgba(95, 243, 93, 0.29);
+      }
+      .error {
+        background-color: rgba(243, 116, 93, 0.822);
       }
     }
   }
