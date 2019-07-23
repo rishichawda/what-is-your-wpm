@@ -1,37 +1,35 @@
-import React from "react";
+import React from 'react'
 
-import "./App.scss";
-import Arena from "./arena";
-import Footer from "./components/footer";
+import './App.scss'
+import Arena from './arena'
+import Footer from './components/footer'
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      showModal: true
-    };
+      showModal: true,
+    }
 
-    this.hideModal = () => this.setState({ showModal: false });
+    this.hideModal = () => this.setState({ showModal: false })
   }
 
   render() {
-    const { showModal } = this.state;
+    const { showModal } = this.state
     return (
       <div className="app">
-        <div className={`modal ${showModal ? "show" : "hide"}`}>
+        <div className={`modal ${showModal ? 'show' : 'hide'}`}>
           <h4>What is your WPM?</h4>
-          <p>
-            Type as fast as you can and find your typing speed!
-          </p>
+          <p>Type as fast as you can and find your typing speed!</p>
           <button type="button" onClick={this.hideModal}>
             Start
           </button>
-        <Footer />
+          <Footer />
         </div>
         {!showModal && <Arena />}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
