@@ -2816,10 +2816,10 @@ eslint-config-prettier@^6.0.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-rishikc@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-rishikc/-/eslint-config-rishikc-0.0.1.tgz#9ccb246494bd9a32164977544149a8b5a61c17bb"
-  integrity sha512-XRgD+IbYgexi7887LfhfzZOjVaefWSZPKHq4mQgS4e6Bk5eXPwdVXqDTpWYvSuP06f8PXnz95Ai+DtoCCQTZbg==
+eslint-config-rishikc@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-rishikc/-/eslint-config-rishikc-0.0.2.tgz#51d45c39aad250058049663778ab79df0a53039f"
+  integrity sha512-ybRhoEunPrngD4/P4PrYvG51bDW3bFZgEIkxurS85khtvAzOjCtJCFor3Hy59jFrnOyBXtueLUuuEfb9t7S9Eg==
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"

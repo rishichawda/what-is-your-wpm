@@ -4,7 +4,9 @@ import './index.scss'
 import Footer from '../components/footer'
 
 const baseUrl =
-  process.env.NODE_ENV === 'production' ? 'https://typeracingapi.rishikc.com/' : 'http://localhost:8080/text/'
+  process.env.NODE_ENV === 'production'
+    ? 'https://typeracingapi.rishikc.com/'
+    : 'http://localhost:8080/text/'
 
 const INITIAL_STATE = {
   text: '',
@@ -70,17 +72,18 @@ export default class Arena extends Component {
 
   generateText = () => {
     const { text, progress, incorrect } = this.state
-    const renderCharacter = (char, index) => {
-      const isErrored = incorrect.indexOf(index) >= 0
-      const correct = char === progress[index] ? 'progressed' : undefined
-      const className = isErrored ? 'error' : correct
-      return (
-        <span className={className} key={`generated-content-${char}-${index + 1}`}>
-          {char}
-        </span>
-      )
-    }
-    return text ? text.split('').map(renderCharacter) : null
+    return text
+      ? text.split('').map((char, index) => {
+          const isErrored = incorrect.indexOf(index) >= 0
+          const correct = char === progress[index] ? 'progressed' : undefined
+          const className = isErrored ? 'error' : correct
+          return (
+            <span className={className} key={`generated-content-${char}-${index + 1}`}>
+              {char}
+            </span>
+          )
+        })
+      : null
   }
 
   registerKeyDown = ({ key }) => {
@@ -147,7 +150,9 @@ export default class Arena extends Component {
     const { text, timer, current, timeElapsed, showResults, wpm } = this.state
     const seconds = timeElapsed % 60 > 9 ? timeElapsed % 60 : `0${timeElapsed % 60}`
     const minutes =
-      (timeElapsed - seconds) / 60 > 10 ? (timeElapsed - seconds) / 60 : `0${(timeElapsed - seconds) / 60}`
+      (timeElapsed - seconds) / 60 > 10
+        ? (timeElapsed - seconds) / 60
+        : `0${(timeElapsed - seconds) / 60}`
     return (
       <div className="app-container">
         <div className="navbar">
@@ -155,15 +160,23 @@ export default class Arena extends Component {
         </div>
         <div className="arena">
           <div className={`timer ${timer === 0 && 'hide'}`}>
-            {text.length ? `${timer === 0 ? "Let's go!!" : `${timer} seconds to start!`}` : 'Fetching text..'}
+            {text.length
+              ? `${timer === 0 ? "Let's go!!" : `${timer} seconds to start!`}`
+              : 'Fetching text..'}
           </div>
           <div style={{ position: 'relative' }}>
             {!showResults && <p>{`Current Speed : ${wpm} wpm`}</p>}
             {!showResults && (
-              <div className={`watch ${timeElapsed !== 0 && 'show'}`}>{`Time elapsed  ${minutes} : ${seconds}`}</div>
+              <div
+                className={`watch ${timeElapsed !== 0 && 'show'}`}
+              >{`Time elapsed  ${minutes} : ${seconds}`}</div>
             )}
           </div>
-          {text.length ? <div className="generated-text">{this.generateText()}</div> : <div className="loader" />}
+          {text.length ? (
+            <div className="generated-text">{this.generateText()}</div>
+          ) : (
+            <div className="loader" />
+          )}
           {!showResults ? (
             <div className="current-word">{current && this.generateCurrent(current)}</div>
           ) : (
