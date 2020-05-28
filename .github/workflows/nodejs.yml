@@ -1,25 +1,19 @@
-name: Build and Deploy
+  
 on:
   push:
     branches:
-      - master
+      - master  # default branch
+
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false 
+      - uses: actions/checkout@v2
 
-      - name: Install and Build 🔧
-        run: |
-          npm install
-          npm run-script build
+      - run: npm install && npm run build
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
